@@ -246,7 +246,7 @@ const anoAtual=+new Intl.DateTimeFormat("en-US",{timeZone:TZ,year:"numeric"}).fo
 function sextaBF(y){const d=new Date(Date.UTC(y,10,30));while(d.getUTCDay()!==5)d.setUTCDate(d.getUTCDate()-1);return d.getUTCDate()}
 const bfDia=sextaBF(anoAtual);
 const EVENTOS=[
-  {id:"blackfriday",nome:"Black Friday",ini:brt(anoAtual,10,bfDia-11),fim:brt(anoAtual,10,bfDia+4),dia:brt(anoAtual,10,bfDia)},
+  {id:"blackfriday",nome:"Black Friday",ini:brt(anoAtual,10,10),fim:brt(anoAtual,10,bfDia+4),dia:brt(anoAtual,10,bfDia)},
   {id:"natal",nome:"Natal",ini:brt(anoAtual,11,1),fim:brt(anoAtual,11,26),dia:brt(anoAtual,11,25)}
 ];
 const achaEv=()=>EVENTOS.find(e=>agora()>=e.ini&&agora()<e.fim)||null;
