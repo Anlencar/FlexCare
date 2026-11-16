@@ -204,7 +204,7 @@ $("natal").onclick=()=>{active="Casa e Natal";term="";$("q").value="";renderChip
    ===================================================================== */
 
 /* Interruptor das promoções. Deixe false até os preços acima estarem iguais no checkout da Kaiross; depois troque para true. */
-const PROMOS_ATIVAS=false;
+const PROMOS_ATIVAS=true;
 /* ==================== PREÇOS E PROMOÇÃO DA BLACK FRIDAY — EDITE AQUI ====================
    Cada linha é um produto (o código é o final do link do checkout).
    normal: o preço normal do produto (o que o checkout cobra hoje). Aparece o ano todo e vira o preço "de" riscado na Black Friday.
@@ -220,7 +220,7 @@ const PRECOS={
   "FxN390SkyWys":{normal:"R$ 70,00", bf:""},  /* Irrigador bucal portátil de alta pressão HF05 – verde */
   "WeljUaDA4Te9":{normal:"R$ 99,90", bf:""},  /* Fone Headset Gamer RGB – preto */
   "58opuufpjzWk":{normal:"R$ 119,90", bf:""},  /* Controle sem fio PS4 Bluetooth – verde camuflado */
-  "VC5atji2P6B4":{normal:"R$ 120,00", bf:""},  /* Suporte de notebook com base refrigerada BM763 */
+  "VC5atji2P6B4":{normal:"R$ 120,00", bf:"R$ 99,90"},  /* Suporte de notebook com base refrigerada BM763 */
   "ja7pz4buEavh":{normal:"R$ 35,00", bf:""},  /* Joelheira de compressão ortopédica – 1 unidade */
   "76dmW7B95PCU":{normal:"R$ 169,00", bf:""},  /* Suporte para monitor com braço articulado – 17" a 27" */
   "55HRWngjQbdY":{normal:"R$ 79,00", bf:""},  /* Suporte de tablet de mesa 360° */
