@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="same-origin">
+<meta name="theme-color" content="#080b12">
+<title>Entrar | Painel FlexCare</title>
+<link rel="icon" href="/assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css">
+</head>
+<body>
+<main class="login-pg">
+  <div class="login-box">
+    <div class="marca"><img src="/assets/logo.png" alt="">Flex<span>Care</span></div>
+
+    <section id="entrar" hidden>
+      <h1>Painel administrativo</h1>
+      <p class="sub">Acesso restrito a funcionários.</p>
+      <form id="formEntrar" novalidate>
+        <div class="aviso erro" id="erroEntrar" role="alert" hidden></div>
+        <div class="aviso info" id="infoEntrar" role="status" hidden></div>
+        <div class="campo"><label for="usuario">Usuário</label>
+          <input type="text" id="usuario" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="32" required></div>
+        <div class="campo"><label for="senha">Senha</label>
+          <div class="olho"><input type="password" id="senha" name="password" autocomplete="current-password" maxlength="128" required>
+          <button type="button" class="ver-senha" aria-label="Mostrar senha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+        <button class="btn" type="submit" id="btEntrar">Entrar</button>
+      </form>
+    </section>
+
+    <section id="configurar" hidden>
+      <h1>Primeiro acesso</h1>
+      <p class="sub">Crie a conta do administrador principal. Esta tela some depois que a primeira conta existir.</p>
+      <form id="formSetup" novalidate>
+        <div class="aviso erro" id="erroSetup" role="alert" hidden></div>
+        <div class="campo"><label for="sToken">Código de configuração</label>
+          <input type="password" id="sToken" autocomplete="off" maxlength="200" required>
+          <span class="ajuda">É o valor da variável SETUP_TOKEN que você colocou na Vercel.</span></div>
+        <div class="campo"><label for="sNome">Seu nome</label><input type="text" id="sNome" autocomplete="name" maxlength="60" required></div>
+        <div class="campo"><label for="sUsuario">Usuário de acesso</label>
+          <input type="text" id="sUsuario" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="32" required>
+          <span class="ajuda">Letras minúsculas, números, ponto, hífen ou _.</span></div>
+        <div class="campo"><label for="sSenha">Senha</label>
+          <div class="olho"><input type="password" id="sSenha" autocomplete="new-password" maxlength="128" required>
+          <button type="button" class="ver-senha" aria-label="Mostrar senha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+          <span class="ajuda">Mínimo de 10 caracteres. Use uma frase ou misture letras, números e símbolos.</span></div>
+        <div class="campo"><label for="sSenha2">Repita a senha</label><input type="password" id="sSenha2" autocomplete="new-password" maxlength="128" required></div>
+        <button class="btn" type="submit" id="btSetup">Criar administrador e entrar</button>
+      </form>
+    </section>
+
+    <div id="carregando" class="linha centro-carga"><div class="spinner"></div></div>
+  </div>
+</main>
+<script type="module" src="/admin/assets/login.js"></script>
+</body>
+</html>
