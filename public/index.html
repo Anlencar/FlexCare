@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<meta name="description" content="FlexCare — gadgets, beleza e bem-estar com compra segura e entrega em todo o Brasil.">
+<title>FlexCare | Gadgets, beleza e bem-estar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--ink:#f2f6fd;--ink2:#a3b1c8;--blue:#2b7bff;--blue-d:#1a63e0;--sky:#13243f;--sun:#ffc93c;--bg:#080b12;--card:#101827;--line:#223048;--ok:#4fe0a0;--warn:#ffc93c;--panel:#0d1422;
+--display:"Bricolage Grotesque",system-ui,sans-serif;--body:Figtree,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+.topbar{background:#0a1a33;border-bottom:1px solid var(--line);color:#c4d3ee;font-size:.82rem}
+.topbar .wrap{display:flex;justify-content:center;gap:28px;padding:9px 0;flex-wrap:wrap}
+.topbar b{color:var(--sun);font-weight:600}
+header{position:sticky;top:0;z-index:20;background:rgba(8,11,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:22px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:-.4px}
+.brand img{width:48px;height:48px;border-radius:50%}.brand span{color:#4a95ff}
+.search{flex:1;max-width:520px;margin-left:auto;position:relative}
+.search input{width:100%;font:inherit;padding:12px 16px 12px 44px;border:1.5px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink)}
+.search input::placeholder{color:#7586a3}
+.search input:focus{border-color:var(--blue);outline:none;background:var(--card);box-shadow:0 0 0 4px #2b7bff33}
+.search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink2)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:52px 0 40px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:1.04;letter-spacing:-1.6px;margin:0 0 16px}
+.hero p{font-size:1.1rem;color:var(--ink2);max-width:46ch;margin:0 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:700;border:0;cursor:pointer;padding:14px 24px;border-radius:12px;background:var(--blue);color:#fff;transition:background .15s}
+.btn:hover{background:var(--blue-d)}
+.btn.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}.btn.alt:hover{background:var(--sky);border-color:var(--blue)}
+.feat{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:14px;min-height:400px}
+.tile{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.tile:first-child{grid-row:span 2}
+.tile .pic{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#fff;margin:10px 10px 0;border-radius:14px}
+.tile .pic img{width:100%;height:100%;object-fit:contain;padding:12px}
+.tile .meta{padding:12px 16px 14px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.tile .meta span{color:var(--ink);font-weight:600;font-size:.9rem;line-height:1.3}.tile .meta b{color:var(--ink);font-family:var(--display);font-size:1.15rem;white-space:nowrap}
+.tile .emoji{font-size:3.4rem}
+.bar{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin:14px 0 18px}
+.bar h2{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);margin:0;letter-spacing:-.8px}
+.count{color:var(--ink2);font-size:.92rem}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:20px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font:inherit;font-weight:600;font-size:.92rem;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink2);cursor:pointer}
+.chip:hover{border-color:var(--blue);color:var(--ink)}.chip[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s}
+.card:hover{border-color:#2b7bff88;box-shadow:0 12px 32px #0007}
+.pimg{aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;margin:10px 10px 0;border-radius:12px;overflow:hidden}
+.pimg img{width:100%;height:100%;object-fit:contain;padding:10px}
+.placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.4rem;background:var(--sky)}
+.cb{padding:14px 15px 16px;display:flex;flex-direction:column;flex:1}
+.cat{color:#6fa8ff;font-size:.8rem;font-weight:700}
+.card h3{font-size:1rem;line-height:1.3;margin:4px 0 6px;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.desc{color:var(--ink2);font-size:.86rem;line-height:1.45;margin:0 0 12px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.price{font-family:var(--display);font-weight:800;font-size:1.55rem;letter-spacing:-.5px}
+.ship{display:inline-block;align-self:flex-start;font-size:.78rem;font-weight:700;border-radius:6px;padding:3px 8px;margin:6px 0 12px;background:#3a2e0d;color:var(--warn)}
+.ship.free{background:#0f3326;color:var(--ok)}
+.buy{display:block;text-align:center;background:var(--blue);color:#fff;font-weight:700;padding:12px;border-radius:11px;font-size:.95rem;transition:background .15s}
+.buy:hover{background:var(--blue-d)}
+.empty{grid-column:1/-1;text-align:center;padding:48px 16px;background:var(--card);border:1px dashed var(--line);border-radius:18px;color:var(--ink2)}
+.empty .btn{margin-top:14px}
+.trust{margin:64px 0 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.t{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;gap:14px}
+.t i{font-style:normal;font-size:1.6rem;line-height:1}.t strong{display:block;font-size:1.02rem;margin-bottom:3px}.t span{color:var(--ink2);font-size:.9rem}
+footer{background:#05070c;border-top:1px solid var(--line);color:#9fb0cb;padding:30px 0;font-size:.88rem}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot b{color:#fff}
+@media(max-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr;gap:28px;padding-top:36px}.feat{min-height:340px}}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.trust{grid-template-columns:1fr}.topbar .wrap{gap:6px 16px;font-size:.75rem}.nav{flex-wrap:wrap;gap:10px}.search{max-width:none;flex-basis:100%;order:3;margin:0}.brand img{width:42px;height:42px}.cb{padding:11px}.price{font-size:1.3rem}.desc{-webkit-line-clamp:2;font-size:.8rem}.feat{grid-template-columns:1fr 1fr;grid-template-rows:auto;min-height:0}.tile:first-child{grid-row:auto;grid-column:span 2;min-height:230px}.tile:not(:first-child){min-height:210px}.btn{flex:1}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== Temas por data (Natal e Black Friday) ===== */
+:root{--on:#fff}
+.btn,.buy,.chip[aria-pressed=true]{color:var(--on)}
+.evbar{background:var(--evbg,var(--blue));color:var(--evfg,var(--on));font-weight:700;font-size:.92rem}
+.evbar[hidden]{display:none}
+.evin{display:flex;justify-content:center;align-items:center;gap:6px 22px;flex-wrap:wrap;padding:9px 0;text-align:center}
+.evc{font-variant-numeric:tabular-nums;background:#0003;border-radius:8px;padding:2px 10px}
+.price-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.old{color:#9fb0cb;font-size:.9rem;font-weight:500}
+.pct{font-size:.78rem;font-weight:800;border-radius:6px;padding:2px 7px;background:var(--blue);color:var(--on)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body[data-tema=blackfriday]{--blue:#ffd400;--blue-d:#e6bd00;--on:#111;--bg:#000;--card:#0e0e0e;--panel:#0a0a0a;--line:#2e2e2e;--sky:#1c1800;--evbg:#ffd400;--evfg:#111}
+body[data-tema=blackfriday] .topbar{background:#111}
+body[data-tema=blackfriday] .cat,body[data-tema=blackfriday] .brand span{color:#ffd400}
+body[data-tema=blackfriday] .hero{background:radial-gradient(circle at 80% 20%,#3a3000 0,transparent 50%)}
+body[data-tema=blackfriday] h1{text-transform:uppercase;letter-spacing:-.5px}
+body[data-tema=natal]{--blue:#c8102e;--blue-d:#a50d26;--on:#fff;--bg:#06130d;--card:#0e1f17;--panel:#0a1812;--line:#22402f;--sky:#12301f;--evbg:linear-gradient(90deg,#a50d26,#0b5a34);--evfg:#fff}
+body[data-tema=natal] .topbar{background:#0b2a1a}
+body[data-tema=natal] .cat,body[data-tema=natal] .brand span,body[data-tema=natal] .price{color:#ffd36e}
+body[data-tema=natal] .hero{background:radial-gradient(circle at 15% 10%,#3a0c16 0,transparent 45%),radial-gradient(circle at 85% 30%,#0e4a2b 0,transparent 50%)}
+body[data-tema=natal] .pct{background:#ffd36e;color:#3a0c16}
+.feat[hidden],.mascot[hidden]{display:none}
+.mascot{display:flex;justify-content:center}
+.mascot img{width:min(100%,520px);height:auto;border-radius:22px;border:1px solid var(--line);box-shadow:0 18px 60px #ffd40022}
+.pimg{position:relative}
+.selo{position:absolute;left:8px;top:8px;z-index:2;background:#000;color:#fff;border:1.5px solid #fff;outline:1px solid #000;font:600 .68rem/1 var(--body);letter-spacing:.9px;text-transform:uppercase;padding:6px 11px;border-radius:999px;box-shadow:0 3px 10px #0007;pointer-events:none}
+.selo b{font-weight:900}
+.vars{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 10px;font-size:.8rem;color:var(--ink2)}
+.var{display:inline-flex;align-items:center;gap:6px;font:inherit;font-weight:600;font-size:.8rem;padding:5px 10px 5px 6px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink2);cursor:pointer}
+.var:hover{border-color:var(--blue);color:var(--ink)}
+.var[aria-pressed=true]{border-color:var(--blue);color:var(--ink);box-shadow:0 0 0 2px #2b7bff33}
+.var i{width:14px;height:14px;border-radius:50%;background:var(--sw);border:1px solid #fff6;flex:none}
+.snow{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}
+.flake{position:absolute;top:-12px;left:var(--l);width:var(--s);height:var(--s);border-radius:50%;background:#fff;opacity:.75;animation:fall var(--d) linear var(--dl) infinite}
+@keyframes fall{to{transform:translate(var(--x),110vh)}}
+@media(prefers-reduced-motion:reduce){.snow{display:none}}
+
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1786289012622471');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1786289012622471&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<div class="snow" id="snow" aria-hidden="true"></div>
+<div class="topbar"><div class="wrap"><span><b>Pix</b> ou cartão em até 12x</span><span>Entrega em todo o Brasil</span><span>7 dias de garantia</span></div></div>
+<div class="evbar" id="evbar" hidden><div class="wrap evin"><span id="evText"></span><span class="evc" id="evCount" aria-hidden="true"></span></div></div>
+<header><div class="wrap nav">
+  <a class="brand" href="#"><img src="/assets/logo.png" alt="Logo FlexCare">Flex<span>Care</span></a>
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar produto, ex.: fone, árvore, irrigador" aria-label="Buscar produtos"></label>
+</div></header>
+<main>
+<section class="wrap hero">
+  <div>
+    <h1 id="heroT">Gadgets, beleza e bem-estar para o seu dia a dia</h1>
+    <p id="heroP">Produtos escolhidos a dedo, com checkout seguro, entrega em todo o Brasil e 7 dias de garantia.</p>
+    <div class="cta"><a class="btn" href="#produtos">Ver todos os produtos</a><button class="btn alt" id="natal" type="button">🎄 Produtos de Natal</button></div>
+  </div>
+  <div class="feat" id="feat" aria-label="Produtos em destaque"></div>
+  <div class="mascot" id="mascot" hidden><img id="mascotImg" width="720" height="747" alt="Capivara mascote da FlexCare com sacolas na Black Friday"></div>
+</section>
+<section class="wrap" id="produtos">
+  <div class="bar"><h2>Nossos produtos</h2><div class="count" id="count" aria-live="polite"></div></div>
+  <div class="chips" id="chips" role="group" aria-label="Categorias"></div>
+  <div class="grid" id="grid"></div>
+</section>
+<section class="wrap trust" id="sobre">
+  <div class="t"><i>🔒</i><div><strong>Compra segura</strong><span>Pagamento por Pix ou cartão em ambiente protegido e criptografado.</span></div></div>
+  <div class="t"><i>↩️</i><div><strong>7 dias de garantia</strong><span>Não gostou? Devolução total em até 7 dias após o recebimento.</span></div></div>
+  <div class="t"><i>📦</i><div><strong>Entrega em todo o Brasil</strong><span>Informe o CEP no checkout para ver o prazo da sua região.</span></div></div>
+</section>
+</main>
+<footer><div class="wrap foot"><div><b>FlexCare</b> — Conforto para acompanhar seu movimento.</div><div>© <span id="year"></span> FlexCare. Todos os direitos reservados.</div></div></footer>
+<script>
+/* =====================================================================
+   CATÁLOGO — os produtos, preços, promoções e o tema vêm do painel (/api/catalogo).
+   Para alterar produtos, use o painel administrativo. Não edite aqui.
+   ===================================================================== */
+const $=id=>document.getElementById(id);
+const MASCOTE_BF="/assets/mascote-black-friday.jpg";
+const TZ="America/Sao_Paulo";
+const MULTICOR="conic-gradient(#e74c3c 0 25%,#f1c40f 0 50%,#2ecc71 0 75%,#9b59b6 0)";
+let products=[],cats=["Todos"],DESTAQUES=[],EV=null,temPromo=false,proximaTroca=null;
+let active="Todos",term="";
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const pad=n=>String(n).padStart(2,"0");
+const agora=()=>Date.now();
+const seguro=u=>{try{const x=new URL(u,location.href);return x.protocol==="https:"||x.origin===location.origin?x.href:"#"}catch(e){return "#"}};
+function eff(p){return{price:p.price,old:p.old,pct:p.pct,url:seguro(p.url)}}
+function pic(p,cls){
+  const a=document.createElement("a");a.className=cls;a.href=eff(p).url;a.target="_blank";a.rel="noopener noreferrer";a.setAttribute("aria-label","Ver "+p.name);
+  const fb=()=>{[...a.children].forEach(c=>{if(!c.classList.contains("selo"))c.remove()});const d=document.createElement("div");d.className="placeholder";d.textContent=p.icon||"✨";a.appendChild(d)};
+  if(p.image){const i=document.createElement("img");i.src=seguro(p.image);i.alt=p.name;i.loading="lazy";i.referrerPolicy="no-referrer";i.decoding="async";i.onerror=fb;a.appendChild(i)}else fb();
+  return a}
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function renderFeat(){
+  $("feat").innerHTML="";
+  DESTAQUES.forEach(id=>{const p=products.find(x=>x.id===id);if(!p)return;
+    const t=el("div","tile");const a=pic(p,"pic");a.style.flex="1";
+    const m=el("div","meta");m.append(el("span",null,p.name.split(" – ")[0].replace(/ de alta pressão HF05/,"")),el("b",null,eff(p).price));
+    t.append(a,m);$("feat").appendChild(t)})}
+function renderChips(){
+  $("chips").innerHTML="";
+  cats.forEach(c=>{const b=el("button","chip",c);b.type="button";b.setAttribute("aria-pressed",c===active);
+    b.onclick=()=>{active=c;renderChips();renderGrid()};$("chips").appendChild(b)})}
+function renderGrid(){
+  const g=$("grid");g.innerHTML="";
+  const list=products.filter(p=>(active==="Todos"||p.category===active)&&(!term||norm(p.name+" "+p.description+" "+p.category+" "+(p.variants||[]).map(v=>v.label).join(" ")).includes(term)));
+  $("count").textContent=list.length+(list.length===1?" produto":" produtos");
+  if(!list.length){const e=el("div","empty","Nenhum produto encontrado para essa busca.");const b=el("button","btn","Limpar busca");b.type="button";
+    b.onclick=()=>{term="";$("q").value="";active="Todos";renderChips();renderGrid()};e.append(document.createElement("br"),b);g.appendChild(e);return}
+  list.forEach(p=>{
+    const c=el("article","card");const body=el("div","cb");
+    const free=p.shipping==="Frete grátis";
+    const s=el("div","ship"+(free?" free":""),(free?"🚚 ":"📦 ")+p.shipping);
+    const buy=el("a","buy","Comprar agora");buy.href=eff(p).url;buy.target="_blank";buy.rel="noopener noreferrer";
+    body.append(el("div","cat",p.category),el("h3",null,p.name),el("p","desc",p.description));
+    if(p.variants&&p.variants.length){const vs=el("div","vars");vs.setAttribute("role","group");vs.setAttribute("aria-label","Cor");vs.append(el("span",null,"Cor:"));
+      p.variants.forEach(v=>{const b=el("button","var");b.type="button";b.setAttribute("aria-pressed",p.url===v.url);
+        const sw=el("i");sw.style.setProperty("--sw",v.swatch==="multicolor"?MULTICOR:/^#[0-9a-f]{6}$/i.test(v.swatch)?v.swatch:"#888");b.append(sw,document.createTextNode(v.label));
+        b.onclick=()=>{p.url=v.url;if(v.image)p.image=v.image;renderGrid()};vs.appendChild(b)});
+      body.append(vs)}
+    body.append(priceBlock(p),s,buy);
+    const im=pic(p,"pimg");if(EV&&EV.id==="blackfriday"){const sl=el("span","selo");sl.append(el("b",null,"BLACK"),document.createTextNode(" FRIDAY"));im.appendChild(sl)};c.append(im,body);g.appendChild(c)})}
+function priceBlock(p){
+  const e=eff(p);if(!e.old)return el("div","price",e.price);
+  const w=el("div","price-row");
+  const o=el("s","old",e.old);const so=el("span","sr","Preço normal: ");
+  const n=el("span","price",e.price);const sn=el("span","sr"," Preço promocional: ");
+  w.append(so,o,sn,n,el("span","pct","-"+e.pct+"%"));return w}
+$("q").addEventListener("input",e=>{term=norm(e.target.value.trim());if(term&&active!=="Todos"){active="Todos";renderChips()}renderGrid()});
+$("natal").onclick=()=>{active="Casa e Natal";term="";$("q").value="";renderChips();renderGrid();$("produtos").scrollIntoView({behavior:"smooth"})};
+
+/* ===== Temas (Normal, Natal, Black Friday) — escolhidos no painel em "Temas e campanhas" ===== */
+function dataBR(t){return new Intl.DateTimeFormat("pt-BR",{timeZone:TZ,day:"2-digit",month:"2-digit"}).format(t)}
+let tickId=null;
+function aplicarTema(){
+  const b=document.body;
+  const bar=$("evbar"),txt=$("evText"),cnt=$("evCount"),h1=$("heroT"),hp=$("heroP");
+  if(tickId){clearInterval(tickId);tickId=null}
+  cnt.textContent="";
+  if(!EV){delete b.dataset.tema;bar.hidden=true;$("feat").hidden=false;$("mascot").hidden=true;return}
+  b.dataset.tema=EV.id;
+  document.querySelector('meta[name="theme-color"]')&&document.querySelector('meta[name="theme-color"]').setAttribute("content",EV.id==="natal"?"#06130d":"#000000");
+  bar.hidden=false;
+  if(EV.id==="natal"){
+    $("feat").hidden=false;$("mascot").hidden=true;
+    h1.textContent="Presentes para quem você ama, com compra segura";
+    hp.textContent="Escolha entre "+products.length+" produtos para presentear. Checkout seguro, entrega em todo o Brasil e 7 dias de garantia.";
+    const dias=EV.dia?Math.ceil((EV.dia-agora())/86400000):0;
+    txt.textContent="Natal na FlexCare: "+(dias>1?"faltam "+dias+" dias para o Natal":dias===1?"falta 1 dia para o Natal":"feliz Natal!")+(temPromo?". Preços especiais em produtos selecionados.":".");
+  }else{
+    h1.textContent=temPromo?"As ofertas da Black Friday chegaram":"Black Friday na FlexCare";
+    $("feat").hidden=true;$("mascot").hidden=false;$("mascotImg").src=MASCOTE_BF;
+    const dBF=EV.dia?Math.ceil((EV.dia-agora())/86400000):null;
+    hp.textContent=temPromo?"Preços especiais em produtos selecionados durante a Black Friday. Pix ou cartão em até 12x e entrega em todo o Brasil.":"Confira os produtos da FlexCare com checkout seguro, Pix ou cartão em até 12x e entrega em todo o Brasil.";
+    if(temPromo&&EV.fim&&EV.fim>agora()){
+      txt.textContent="Black Friday: preços especiais em produtos selecionados até "+dataBR(EV.fim-1)+".";
+      const tick=()=>{let r=Math.max(0,EV.fim-agora());const d=Math.floor(r/864e5);r-=d*864e5;const h=Math.floor(r/36e5);r-=h*36e5;const m=Math.floor(r/6e4);r-=m*6e4;
+        cnt.textContent="Termina em "+d+"d "+pad(h)+"h "+pad(m)+"m "+pad(Math.floor(r/1000))+"s"};
+      tick();tickId=setInterval(tick,1000);
+    }else if(temPromo){
+      txt.textContent="Black Friday: preços especiais em produtos selecionados.";
+    }else{
+      txt.textContent=dBF>0?"Black Friday FlexCare: sexta-feira, "+dataBR(EV.dia)+".":dBF===0?"Hoje é Black Friday na FlexCare.":"Black Friday FlexCare.";
+    }
+  }
+  const sn=$("snow");sn.innerHTML="";
+  if(EV.id==="natal"&&!matchMedia("(prefers-reduced-motion: reduce)").matches){
+    for(let i=0;i<28;i++){const f=document.createElement("i");f.className="flake";
+      f.style.cssText="--l:"+Math.random()*100+"%;--s:"+(3+Math.random()*4)+"px;--d:"+(9+Math.random()*10)+"s;--dl:-"+Math.random()*14+"s;--x:"+(Math.random()*80-40)+"px";sn.appendChild(f)}
+  }
+}
+
+/* ===== Carregamento ===== */
+function usar(d){
+  products=d.produtos||[];DESTAQUES=d.destaques||[];temPromo=!!d.temPromo;proximaTroca=d.proximaTroca||null;
+  EV=d.tema&&d.tema.id!=="normal"?d.tema:null;
+  cats=["Todos",...new Set(products.map(p=>p.category))];
+  if(!cats.includes(active))active="Todos";
+  aplicarTema();renderFeat();renderChips();renderGrid();
+}
+function falhou(){
+  if(products.length)return;
+  const g=$("grid");g.innerHTML="";$("count").textContent="";
+  const e=el("div","empty","Não foi possível carregar os produtos agora.");const b=el("button","btn","Tentar de novo");b.type="button";b.onclick=carregar;
+  e.append(document.createElement("br"),b);g.appendChild(e);
+}
+async function carregar(){
+  try{
+    const r=await fetch("/api/catalogo",{headers:{Accept:"application/json"}});
+    if(!r.ok)throw new Error(r.status);
+    const d=await r.json();usar(d);
+    try{localStorage.setItem("fc_catalogo",JSON.stringify(d))}catch(e){}
+  }catch(e){falhou()}
+}
+try{const c=JSON.parse(localStorage.getItem("fc_catalogo")||"null");if(c&&Array.isArray(c.produtos))usar(c)}catch(e){}
+if(!products.length){$("grid").appendChild(el("div","empty","Carregando produtos…"))}
+carregar();
+setInterval(()=>{if((proximaTroca&&agora()>=proximaTroca)||(EV&&EV.fim&&agora()>=EV.fim&&EV.fim>agora()-120000))carregar()},60000);
+$("year").textContent=new Date().getFullYear();
+</script>
+</body></html>
